@@ -13,9 +13,9 @@ function App() {
     <div className="container">
       <h2>Student Information</h2>
 
-      <Student name="Trishya verma" course="Computer Science" marks={92} />
-      <Student name="Yogyata" course="Mechanical Engineering" marks={78} />
-      <Student name="Vaishnavi Mishra" course="MBA" marks={83} />
+      <Student name=" Sonam Yadav" course="Computer Science" marks={92} />
+      <Student name="Anshika" course="Mechanical Engineering" marks={78} />
+      <Student name="Shreya Rai" course="MBA" marks={83} />
     </div>
   );
 }
