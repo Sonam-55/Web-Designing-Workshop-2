@@ -1,28 +1,26 @@
-let timer;
-let timeLeft;
+function calculateAge() {
+  let dob = document.getElementById("dob").value;
+  if (!dob) {
+    document.getElementById("result").innerHTML = "Please select your date of birth!";
+    return;
+  }
 
-function startTimer() {
-    let input = document.getElementById("seconds").value;
-    timeLeft = parseInt(input);
+  let dobDate = new Date(dob);
+  let today = new Date();
 
-    if (isNaN(timeLeft) || timeLeft <= 0) {
-        alert("Please enter a valid number");
-        return;
-    }
+  let years = today.getFullYear() - dobDate.getFullYear();
+  let months = today.getMonth() - dobDate.getMonth();
+  let days = today.getDate() - dobDate.getDate();
 
-    document.getElementById("display").innerText = timeLeft;
+  if (days < 0) {
+    months--;
+    days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+  }
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
 
-    timer = setInterval(() => {
-        timeLeft--;
-        document.getElementById("display").innerText = timeLeft;
-
-        if (timeLeft <= 0) {
-            clearInterval(timer);
-            document.getElementById("display").innerText = "Time's up!";
-        }
-    }, 1000);
-}
-
-function stopTimer() {
-    clearInterval(timer);
+  document.getElementById("result").innerHTML =
+    "You are " + years + " years, " + months + " months, and " + days + " days old.";
 }
